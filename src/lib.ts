@@ -56,24 +56,6 @@ export function incrementCounter(storage: Storage): boolean {
 	return false;
 }
 
-export function resetCounter(storage: Storage): boolean {
-	try {
-		const streak = JSON.parse(storage.getItem(KEY) || '');
-		const today = formatDate(new Date());
-		const dateDifference = dateAsInteger(today) - dateAsInteger(streak.lastLogin);
-
-		if (dateDifference > 1) {
-			initCounter(storage);
-			return true;
-		}
-	} catch (error) {
-		console.error('No streak to reset, maybe you want to initialise a new one?');
-		return false;
-	}
-
-	return false;
-}
-
 export function overrideStreak(storage: Storage, overrides: Partial<StreakCounter>) {
 	const streak = getCounter(storage);
 

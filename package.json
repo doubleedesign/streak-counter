@@ -1,6 +1,6 @@
 {
   "name": "@doubleedesign/streak-counter",
-  "version": "1.0.0",
+  "version": "0.0.5",
   "author": "Leesa Ward",
   "description": "A thing that counts a streak, such as visiting a website daily, and stores it in the browser's local storage. Built as part of the TypeScript Fundamentals workshop at Render(ATL) 2022.",
   "homepage": "https://github.com/doubleedesign/streak-counter",
