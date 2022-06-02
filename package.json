@@ -1,8 +1,13 @@
 {
   "name": "streak-counter",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "author": "Leesa Ward",
+  "description": "A thing that counts a streak, such as visiting a website daily, and stores it in the browser's local storage. Built as part of the TypeScript Fundamentals workshop at Render(ATL) 2022.",
+  "homepage": "https://github.com/doubleedesign/streak-counter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doubleedesign/streak-counter"
+  },
   "dependencies": {},
   "devDependencies": {
     "@types/jest": "^27.5.1",
@@ -14,7 +19,19 @@
     "ts-jest": "^28.0.3",
     "typescript": "^4.7.2"
   },
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "source": "src/index.ts",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "microbundle",
+    "dev": "microbundle watch"
   }
 }
