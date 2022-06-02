@@ -1,7 +1,8 @@
 import { StreakCounter } from './types';
 import { getCounter, incrementCounter, initCounter, resetCounter } from './lib';
 
-export function getDailyStreak(storage: Storage): StreakCounter {
+export function getDailyStreak(): StreakCounter {
+	let storage = localStorage;
 	let streak = getCounter(storage);
 
 	if (streak) {
