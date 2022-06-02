@@ -10,12 +10,10 @@ export function initCounter(storage: Storage) {
 		storage: storage,
 		startDate: formatDate(today),
 		lastLogin: formatDate(today),
-		count: 0,
+		count: 1,
 	};
 
 	storage.setItem(KEY, JSON.stringify(streak));
-
-	return streak;
 }
 
 export function getCounter(storage: Storage): StreakCounter | null {
@@ -36,7 +34,7 @@ export function getCounter(storage: Storage): StreakCounter | null {
 	}
 }
 
-export function incrementCounter(storage: Storage) {
+export function incrementCounter(storage: Storage): boolean {
 	try {
 		const streak = JSON.parse(storage.getItem(KEY) || '');
 		const today = formatDate(new Date());
@@ -45,27 +43,35 @@ export function incrementCounter(storage: Storage) {
 		if (dateDifference === 1) {
 			streak.count += 1;
 			storage.setItem(KEY, JSON.stringify(streak));
+			return true;
 		} else if (dateDifference === 1) {
 			console.warn('Streak already incremented today');
+			return false;
 		}
 	} catch (error) {
 		console.error('No streak to increment');
+		return false;
 	}
+
+	return false;
 }
 
-export function resetCounter(storage: Storage) {
+export function resetCounter(storage: Storage): boolean {
 	try {
 		const streak = JSON.parse(storage.getItem(KEY) || '');
 		const today = formatDate(new Date());
 		const dateDifference = dateAsInteger(today) - dateAsInteger(streak.lastLogin);
 
 		if (dateDifference > 1) {
-			const newStreak = initCounter(storage);
-			storage.setItem(KEY, JSON.stringify(newStreak));
+			initCounter(storage);
+			return true;
 		}
 	} catch (error) {
 		console.error('No streak to reset, maybe you want to initialise a new one?');
+		return false;
 	}
+
+	return false;
 }
 
 export function overrideStreak(storage: Storage, overrides: Partial<StreakCounter>) {

@@ -58,7 +58,7 @@ describe('Increment or reset stored counter', () => {
 	});
 
 	it('should not increment the streak when login days are not consecutive', () => {
-		streak = initCounter(mockLocalStorage);
+		initCounter(mockLocalStorage);
 
 		overrideStreak(mockLocalStorage, {
 			storage: mockLocalStorage,
