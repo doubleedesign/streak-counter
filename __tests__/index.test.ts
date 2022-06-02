@@ -1,5 +1,7 @@
 import { JSDOM } from 'jsdom';
-import { formatDate, getCounter, incrementCounter, initCounter, overrideStreak, StreakCounter } from '../src';
+import { getCounter, incrementCounter, initCounter, overrideStreak } from '../src/lib';
+import { formatDate } from '../src/utils';
+import { StreakCounter } from '../src/types';
 
 describe('Initialise new counter', () => {
 	let mockLocalStorage: Storage;
