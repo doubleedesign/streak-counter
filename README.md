@@ -2,11 +2,13 @@
 
 A thing that counts a streak, such as visiting a website daily, and stores it in the browser's local storage.
 
-Built as part of the TypeScript Fundamentals workshop at Render(ATL) 2022.
+Built as part of the TypeScript Fundamentals workshop with [@joejsio](https://github.com/jsjoeio) at Render(ATL) 2022.
 
 ## Installation
 
-// TODO
+`yarn add @doubleedesign/streak-counter`
+
+`npm install @doubleedesign/streak-counter`
 
 ## Usage
 
